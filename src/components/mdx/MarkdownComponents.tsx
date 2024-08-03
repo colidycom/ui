@@ -5,7 +5,26 @@ import { ParagraphAnchor } from "../ui/Paragraph";
 import { Tab, TabPanel, Tabs, TabList } from "../ui/Tabs";
 
 // DEMOS
-export * from "../demos";
+export {
+    AccordionDemo,
+    AlertDemo,
+    AvatarDemo,
+    BadgeDemo,
+    ButtonDemo,
+    DialogDemo,
+    DropdownDemo,
+    HeadingDemo,
+    HoverCardDemo,
+    LabelDemo,
+    ParagraphDemo,
+    PopoverDemo,
+    PreviewDemo,
+    SelectDemo,
+    SwitchDemo,
+    TableDemo,
+    TextFieldDemo,
+    TooltipDemo,
+} from "../demos";
 
 // COMPONENTS
 export * from "../ui/Tabs";

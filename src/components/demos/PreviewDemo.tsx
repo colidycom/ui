@@ -14,7 +14,7 @@ export const PreviewDemo = async ({
     children: React.ReactNode;
     displayName: string;
 }) => {
-    // File content için buildin dışına çıktım
+    // File content için buildin dışına çıktım sonuç ne
     let fileContent = await fs.readFile(
         path.join(
             __dirname,
