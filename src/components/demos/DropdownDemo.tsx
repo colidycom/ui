@@ -136,3 +136,9 @@ export const Demo = () => {
         </div>
     );
 };
+
+// @end-example
+export default {
+    props: null,
+    examples: null,
+};

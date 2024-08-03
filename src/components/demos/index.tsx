@@ -1,19 +1,43 @@
 export * from "./PreviewDemo";
 
-export { Demo as DropdownDemo } from "./DropdownDemo";
-export { Demo as DialogDemo } from "./DialogDemo";
-export { Demo as AlertDemo } from "./AlertDemo";
-export { Demo as AvatarDemo } from "./AvatarDemo";
-export { Demo as HeadingDemo } from "./HeadingDemo";
-export { Demo as LabelDemo } from "./LabelDemo";
-export { Demo as ParagraphDemo } from "./ParagraphDemo";
-export { Demo as SelectDemo } from "./SelectDemo";
-export { Demo as SwitchDemo } from "./SwitchDemo";
-export { Demo as TableDemo } from "./TableDemo";
-export { Demo as TextFieldDemo } from "./TextFieldDemo";
-export { Demo as BadgeDemo } from "./BadgeDemo";
-export { Demo as TooltipDemo } from "./TooltipDemo";
-export { Demo as PopoverDemo } from "./PopoverDemo";
-export { Demo as AccordionDemo } from "./AccordionDemo";
-export { Demo as HoverCardDemo } from "./HoverCardDemo";
-export { Demo as ButtonDemo } from "./ButtonDemo";
+export {
+    default as DropdownDemoConfig,
+    Demo as DropdownDemo,
+} from "./DropdownDemo";
+export { default as DialogDemoConfig, Demo as DialogDemo } from "./DialogDemo";
+export { default as AlertDemoConfig, Demo as AlertDemo } from "./AlertDemo";
+export { default as AvatarDemoConfig, Demo as AvatarDemo } from "./AvatarDemo";
+export {
+    default as HeadingDemoConfig,
+    Demo as HeadingDemo,
+} from "./HeadingDemo";
+export { default as LabelDemoConfig, Demo as LabelDemo } from "./LabelDemo";
+export {
+    default as ParagraphDemoConfig,
+    Demo as ParagraphDemo,
+} from "./ParagraphDemo";
+export { default as SelectDemoConfig, Demo as SelectDemo } from "./SelectDemo";
+export { default as SwitchDemoConfig, Demo as SwitchDemo } from "./SwitchDemo";
+export { default as TableDemoConfig, Demo as TableDemo } from "./TableDemo";
+export {
+    default as TextFieldDemoConfig,
+    Demo as TextFieldDemo,
+} from "./TextFieldDemo";
+export { default as BadgeDemoConfig, Demo as BadgeDemo } from "./BadgeDemo";
+export {
+    default as TooltipDemoConfig,
+    Demo as TooltipDemo,
+} from "./TooltipDemo";
+export {
+    default as PopoverDemoConfig,
+    Demo as PopoverDemo,
+} from "./PopoverDemo";
+export {
+    default as AccordionDemoConfig,
+    Demo as AccordionDemo,
+} from "./AccordionDemo";
+export {
+    default as HoverCardDemoConfig,
+    Demo as HoverCardDemo,
+} from "./HoverCardDemo";
+export { default as ButtonDemoConfig, Demo as ButtonDemo } from "./ButtonDemo";

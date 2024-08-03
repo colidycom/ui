@@ -1,11 +1,11 @@
 "use server";
 
-import { Children, Suspense } from "react";
+import { Suspense } from "react";
 import { Card } from "@/colidy-ui/Card";
 import { promises as fs } from "fs";
-import Highlighter from "../mdx/Highlight";
 import { CodeBlock } from "../mdx/CodeBlock";
 import markedContents from "@/../marked-contents.json";
+import path from "path";
 
 export const PreviewDemo = async ({
     children,
@@ -14,8 +14,21 @@ export const PreviewDemo = async ({
     children: React.ReactNode;
     displayName: string;
 }) => {
+    // File content için buildin dışına çıktım
     let fileContent = await fs.readFile(
-        process.cwd() + "/src/components/demos/" + displayName + ".tsx",
+        path.join(
+            __dirname,
+            "..",
+            "..",
+            "..",
+            "..",
+            "..",
+            "..",
+            "src",
+            "components",
+            "demos",
+            displayName + ".tsx"
+        ),
         "utf8"
     );
 
