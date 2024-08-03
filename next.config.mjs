@@ -1,4 +1,17 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+import { withContentlayer } from 'next-contentlayer'
 
-export default nextConfig;
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    redirects: async () => {
+        return [
+            {
+                source: '/docs',
+                destination: '/docs/overview/getting-started',
+                permanent: true,
+            },
+        ];
+    }
+
+};
+
+export default withContentlayer(nextConfig)
