@@ -12,7 +12,7 @@ export const Examples = ({ file }: { file: string }) => {
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
-        import(`../demos/${file}`)
+        import(`@/demos/${file}`)
             .then((module) => {
                 setComponentData(module.default);
             })
