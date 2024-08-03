@@ -51,9 +51,6 @@ export default function RootLayout() {
                     ],
                     theme: {
                         extend: {
-                            maxWidth: {
-                                "8xl": "90rem",
-                            },
                             colors: {
                                 primary: "hsl(var(--primary))",
                                 secondary: "hsl(var(--secondary))",
@@ -76,6 +73,22 @@ export default function RootLayout() {
                                 "2xl": "calc(var(--round) * 3)",
                             },
                             keyframes: {
+                                slideDown: {
+                                    from: {
+                                        height: "0px",
+                                    },
+                                    to: {
+                                        height: "var(--radix-accordion-content-height)",
+                                    },
+                                },
+                                slideUp: {
+                                    from: {
+                                        height: "var(--radix-accordion-content-height)",
+                                    },
+                                    to: {
+                                        height: "0px",
+                                    },
+                                },
                                 fadeIn: {
                                     from: { opacity: "0" },
                                     to: { opacity: "1" },
@@ -157,6 +170,8 @@ export default function RootLayout() {
                                 translateYIn:
                                     "translateYIn 200ms cubic-bezier(0.16, 1, 0.3, 1)",
                                 translateYOut: "translateYOut 150ms",
+                                slideDown: "slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)",
+                                slideUp: "slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)",
                             },
                         },
                     },
@@ -177,27 +192,27 @@ export default function RootLayout() {
 
                 @layer base {
                     :root {
-                        --primary: 240 10% 3.92%;
-                        --secondary: 240 5.88% 10%;
-                        --tertiary: 240 5.88% 15%;
-                        --accent: 240 3% 35%;
+                        --primary: 255 0% 99%;
+                        --secondary: 255 0% 97%;
+                        --tertiary: 255 0% 95%;
+                        --accent: 255 0% 90%;
 
-                        --input: 240 4% 15%;
-                        --border: 240 3% 20%;
+                        --input: 255 0% 98%;
+                        --border: 255 0% 90%;
 
-                        --foreground: 0 0% 100%;
-                        --muted: 0 0% 60%;
+                        --foreground: 0 0% 0%;
+                        --muted: 0 0% 40%;
 
                         --colored: 215 72% 57%;
 
-                        --round: 0.625rem;
+                        --round: .625rem;
                     }
 
                     .dark {
                         --primary: 240 10% 3.92%;
                         --secondary: 240 5.88% 10%;
                         --tertiary: 240 5.88% 15%;
-                        --accent: 240 3% 35%;
+                        --accent: 240 3% 20%;
 
                         --input: 240 4% 15%;
                         --border: 240 3% 20%;
@@ -207,7 +222,7 @@ export default function RootLayout() {
 
                         --colored: 215 72% 57%;
 
-                        --round: 0.625rem;
+                        --round: .625rem;
                     }
                 }
 
@@ -240,8 +255,7 @@ export default function RootLayout() {
                         // ...
                         "paths": {
                             // ...
-                            "@/colidy-ui/*": ["./src/components/colidy-ui/*"],
-                            "@/utils/*": ["./src/utils/*"]
+                            "@/colidy-ui/*": ["./src/components/colidy-ui/*"]
                         }
                     }
                     // ...
