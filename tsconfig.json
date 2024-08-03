@@ -22,6 +22,7 @@
         "paths": {
             "@/*": ["./src/*"],
             "@/colidy-ui/*": ["./src/components/ui/*"],
+            "@/demos/*": ["./src/components/demos/*"],
             "contentlayer/generated": ["./.contentlayer/generated"]
         }
     },
