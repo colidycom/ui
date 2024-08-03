@@ -3,25 +3,11 @@
 import { useEffect, useState } from "react";
 import { Tooltip } from "@/colidy-ui/Tooltip";
 import { Badge } from "@/colidy-ui/Badge";
+import * as Demos from "@/demos";
 
 export const PropsTable = ({ file }: { file: string }) => {
-    const [componentData, setComponentData] = useState<any>(null);
-    const [error, setError] = useState<Error | null>(null);
-
-    useEffect(() => {
-        import(`../demos/${file}`)
-            .then((module) => {
-                setComponentData(module.default);
-            })
-            .catch((err) => {
-                console.error("Error loading component data:", err);
-                setError(err);
-            });
-    }, [file]);
-
-    if (error) return <div>Error loading component data</div>;
-
-    if (!componentData) return <div>Loading...</div>; // Yüklenme durumu
+    const componentData = (Demos as any)?.[file + "Config"];
+    if (!componentData) return <div>Error loading component data</div>;
 
     if (!componentData.props) return null;
     return (
