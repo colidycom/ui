@@ -71,6 +71,17 @@ export default {
                 </div>
             ),
             imports: `import { Button } from "@/colidy-ui/Button";`,
+            code: `<div className="flex flex-wrap gap-4 max-w-2xl">
+            {["ghost", "solid", "outline", "link"].map((variant) => (
+                <Button
+                    key={variant}
+                    variant={variant as any}
+                    color={"primary"}
+                >
+                    {variant}
+                </Button>
+            ))}
+        </div>`,
         },
         {
             title: "Sizes",
@@ -93,6 +104,21 @@ export default {
                 </div>
             ),
             imports: `import { Button } from "@/colidy-ui/Button";`,
+            code: `<div className="flex flex-wrap items-center gap-4 max-w-3xl !p-2">
+            {["sm", "md", "lg", "xl"].map((size) => (
+                <Button key={size} size={size as any} color={"primary"}>
+                    {
+                        {
+                            sm: "Small",
+                            md: "Medium",
+                            lg: "Large",
+                            xl: "Extra Large",
+                        }[size]
+                    }{" "}
+                    Button
+                </Button>
+            ))}
+        </div>`,
         },
         {
             title: "Colors",
@@ -107,6 +133,13 @@ export default {
                 </div>
             ),
             imports: `import { Button } from "@/colidy-ui/Button";`,
+            code: `<div className="flex flex-wrap gap-4">
+            {colors.map((color) => (
+                <Button key={color} color={color}>
+                    {color}
+                </Button>
+            ))}
+        </div>`,
         },
         {
             title: "Disabled",
@@ -117,6 +150,9 @@ export default {
                 </div>
             ),
             imports: `import { Button } from "@/colidy-ui/Button";`,
+            code: `<div className="flex flex-wrap gap-4">
+            <Button disabled>Try to click me</Button>
+        </div>`,
         },
         {
             title: "Loading State",
@@ -126,6 +162,9 @@ export default {
                     <Button isLoading>Click me</Button>
                 </div>
             ),
+            code: `<div className="flex flex-wrap gap-4">
+            <Button isLoading>Click me</Button>
+        </div>`,
         },
         {
             title: "With Icon",
@@ -153,6 +192,27 @@ export default {
                     </Button>
                 </div>
             ),
+            code: `<div className="flex flex-wrap gap-4">
+            <Button>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width={16}
+                    height={16}
+                    color={"currentColor"}
+                    fill={"none"}
+                >
+                    <path
+                        d="M12 4V20M20 12H4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                </svg>
+                Add something
+            </Button>
+        </div>`,
         },
         {
             title: "Icon Only",
@@ -179,10 +239,29 @@ export default {
                     </Button>
                 </div>
             ),
+            code: `<div className="flex flex-wrap gap-4">
+            <Button iconOnly>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width={16}
+                    height={16}
+                    color={"currentColor"}
+                    fill={"none"}
+                >
+                    <path
+                        d="M12 4V20M20 12H4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                </svg>
+            </Button>
+        </div>`,
         },
     ],
 };
-
 
 // @start-demo-string
 export const DemoString = `"use client";
@@ -200,5 +279,4 @@ export const Demo = () => {
         </div>
     );
 };
-
 `;
