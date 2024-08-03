@@ -86,6 +86,23 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={inter.className}>
+                <head>
+                    {/* Global site tag (gtag.js) - Google Analytics */}
+                    <script
+                        async
+                        src="https://www.googletagmanager.com/gtag/js?id=G-N0BJVR3ZM0"
+                    ></script>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'G-N0BJVR3ZM0');
+                        `,
+                        }}
+                    />
+                </head>
                 <ThemeProvider attribute="class" defaultTheme="system">
                     <Navbar />
                     {children}
