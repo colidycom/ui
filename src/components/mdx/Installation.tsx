@@ -42,7 +42,15 @@ export const Code = async ({ file }: { file: string }) => {
         (key) => key.toLowerCase() === (file + "demo").toLowerCase()
     );
 
-    const fileContent = (Demos as any)[fileKey + "String"];
+    const res = await fetch("https://api.github.com/repos/colidycom/ui/contents/src/components/ui/" + fileKey?.replace('Demo', '') + ".tsx", {
+        headers: {
+            Authorization: 'token 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'
+        }
+    }).catch(() => null);
+
+    const json = await res?.json();
+    const fileContent = Buffer.from(json?.content, 'base64').toString();
+
     const { colidyPackages } = getPackages(fileContent);
 
     const packageReplacedContent = colidyPackages.reduce(
