@@ -1,0 +1,23 @@
+import { docsTree } from "@/utils/docs-utils";
+import { MetadataRoute } from "next";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const baseUrl = new URL("https://ui.colidy.com");
+    const flatDocs = docsTree.flatMap((doc) => doc.items);
+
+    return [
+        {
+            url: new URL("/", baseUrl).toString(),
+            changeFrequency: "daily",
+            priority: 1,
+            lastModified: new Date().toISOString(),
+        },
+    ].concat(
+        flatDocs.map((doc) => ({
+            url: new URL("/docs" + doc.url, baseUrl).toString(),
+            changeFrequency: "weekly",
+            priority: 0.8,
+            lastModified: new Date().toISOString(),
+        }))
+    ) as MetadataRoute.Sitemap;
+}
