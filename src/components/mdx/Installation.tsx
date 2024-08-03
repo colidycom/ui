@@ -16,7 +16,7 @@ export const Packages = async ({ file }: { file: string }) => {
 
     const res = await fetch("https://api.github.com/repos/colidycom/ui/contents/src/components/ui/" + fileKey?.replace('Demo', '') + ".tsx", {
         headers: {
-            Authorization: 'token ' + Buffer.from('Z2l0aHViX3BhdF8xMUFOT0s2WlEwWjNIalpjNE5ka1MyX25pUXBmYlR3SW9hS1JJejBRa0dtS1hPOXdadmp0OEsxdnlURHJaaWsxYzdTRFhPNERWNmlyM0RTa1Fo', 'base64').toString()
+            Authorization: 'token ' + process.env.GH_KEY
         }
     }).catch(() => null);
 
@@ -52,7 +52,7 @@ export const Code = async ({ file }: { file: string }) => {
 
     const res = await fetch("https://api.github.com/repos/colidycom/ui/contents/src/components/ui/" + fileKey?.replace('Demo', '') + ".tsx", {
         headers: {
-            Authorization: 'token ' + Buffer.from('Z2l0aHViX3BhdF8xMUFOT0s2WlEwWjNIalpjNE5ka1MyX25pUXBmYlR3SW9hS1JJejBRa0dtS1hPOXdadmp0OEsxdnlURHJaaWsxYzdTRFhPNERWNmlyM0RTa1Fo', 'base64').toString()
+            Authorization: 'token ' + process.env.GH_KEY
         }
     }).catch(() => null);
 
