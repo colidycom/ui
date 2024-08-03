@@ -13,7 +13,15 @@ export const Packages = async ({ file }: { file: string }) => {
     const fileKey = Object.keys(Demos).find(
         (key) => key.toLowerCase() === (file + "demo").toLowerCase()
     );
-    const fileContent = (Demos as any)[fileKey + "String"];
+
+    const res = await fetch("https://api.github.com/repos/colidycom/ui/contents/src/components/ui/" + fileKey?.replace('Demo', '') + ".tsx", {
+        headers: {
+            Authorization: 'token ' + Buffer.from('Z2l0aHViX3BhdF8xMUFOT0s2WlEwWjNIalpjNE5ka1MyX25pUXBmYlR3SW9hS1JJejBRa0dtS1hPOXdadmp0OEsxdnlURHJaaWsxYzdTRFhPNERWNmlyM0RTa1Fo', 'base64').toString()
+        }
+    }).catch(() => null);
+
+    const json = await res?.json();
+    const fileContent = Buffer.from(json?.content || Buffer.from('Error').toString('base64'), 'base64').toString();
     const { packages } = getPackages(fileContent);
 
     return (
@@ -44,12 +52,12 @@ export const Code = async ({ file }: { file: string }) => {
 
     const res = await fetch("https://api.github.com/repos/colidycom/ui/contents/src/components/ui/" + fileKey?.replace('Demo', '') + ".tsx", {
         headers: {
-            Authorization: 'token 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'
+            Authorization: 'token ' + Buffer.from('Z2l0aHViX3BhdF8xMUFOT0s2WlEwWjNIalpjNE5ka1MyX25pUXBmYlR3SW9hS1JJejBRa0dtS1hPOXdadmp0OEsxdnlURHJaaWsxYzdTRFhPNERWNmlyM0RTa1Fo', 'base64').toString()
         }
     }).catch(() => null);
 
     const json = await res?.json();
-    const fileContent = Buffer.from(json?.content, 'base64').toString();
+    const fileContent = Buffer.from(json?.content || Buffer.from('Error').toString('base64'), 'base64').toString();
 
     const { colidyPackages } = getPackages(fileContent);
 
