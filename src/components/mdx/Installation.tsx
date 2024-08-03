@@ -1,12 +1,12 @@
 "use server";
 
-import { promises as fs } from "fs";
 import Link from "next/link";
 import { CodeBlock } from "./CodeBlock";
 import { LinkedHeading } from "./LinkedHeading";
 import { Tab, TabList, TabPanel, Tabs } from "@/colidy-ui/Tabs";
 import Highlighter from "./Highlight";
 import { CopyButton } from "./CopyButton";
+import * as Demos from "../demos";
 
 const getPackages = (content: string) => {
     const importRegex = /(from "(.*)";)/g;
@@ -64,11 +64,10 @@ const getPackages = (content: string) => {
 };
 
 export const Packages = async ({ file }: { file: string }) => {
-    const fileContent = await fs.readFile(
-        process.cwd() + "/src/components/ui/" + file + ".tsx",
-        "utf8"
+    const fileKey = Object.keys(Demos).find(
+        (key) => key.toLowerCase() === (file + "demo").toLowerCase()
     );
-
+    const fileContent = (Demos as any)[fileKey + "String"];
     const { packages } = getPackages(fileContent);
 
     return (
@@ -93,10 +92,11 @@ export const Packages = async ({ file }: { file: string }) => {
 };
 
 export const Code = async ({ file }: { file: string }) => {
-    const fileContent = await fs.readFile(
-        process.cwd() + "/src/components/ui/" + file + ".tsx",
-        "utf8"
+    const fileKey = Object.keys(Demos).find(
+        (key) => key.toLowerCase() === (file + "demo").toLowerCase()
     );
+
+    const fileContent = (Demos as any)[fileKey + "String"];
 
     const { colidyPackages } = getPackages(fileContent);
     const packageReplacedContent = colidyPackages.reduce(

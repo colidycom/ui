@@ -182,3 +182,23 @@ export default {
         },
     ],
 };
+
+
+// @start-demo-string
+export const DemoString = `"use client";
+import { Button } from "@/colidy-ui/Button";
+import { colors } from "@colidy/ui-utils";
+
+export const Demo = () => {
+    return (
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center gap-2 max-w-lg">
+            {["primary", "secondary"].concat(colors).map((color) => (
+                <Button key={color} color={color}>
+                    {color}
+                </Button>
+            ))}
+        </div>
+    );
+};
+
+`;

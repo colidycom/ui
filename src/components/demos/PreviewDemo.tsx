@@ -2,10 +2,9 @@
 
 import { Suspense } from "react";
 import { Card } from "@/colidy-ui/Card";
-import { promises as fs } from "fs";
 import { CodeBlock } from "../mdx/CodeBlock";
 import markedContents from "@/../marked-contents.json";
-import path from "path";
+import * as Demos from "./index";
 
 export const PreviewDemo = async ({
     children,
@@ -14,27 +13,7 @@ export const PreviewDemo = async ({
     children: React.ReactNode;
     displayName: string;
 }) => {
-    // File content için buildin dışına çıktım sonuç ne
-    let fileContent = await fs.readFile(
-        path.join(
-            __dirname,
-            "..",
-            "..",
-            "..",
-            "..",
-            "..",
-            "..",
-            "src",
-            "components",
-            "demos",
-            displayName + ".tsx"
-        ),
-        "utf8"
-    );
-
-    if (fileContent.includes("// @end-example")) {
-        fileContent = fileContent.split("// @end-example")[0];
-    }
+    const fileContent = (Demos as any)[displayName + "String"];
 
     if (markedContents.includes(displayName))
         return (

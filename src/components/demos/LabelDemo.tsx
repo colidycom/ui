@@ -68,3 +68,21 @@ export default {
         },
     ],
 };
+
+
+// @start-demo-string
+export const DemoString = `"use client";
+import { Label } from "@/colidy-ui/Label";
+import { Card } from "@/colidy-ui/Card";
+
+export const Demo = () => {
+    return (
+        <div>
+            <Card className="max-w-lg">
+                <Label label="Full Name" />
+            </Card>
+        </div>
+    );
+};
+
+`;

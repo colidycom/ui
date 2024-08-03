@@ -168,3 +168,27 @@ export default {
         },
     ],
 };
+
+
+// @start-demo-string
+export const DemoString = `"use client";
+import { Alert } from "@/colidy-ui/Alert";
+
+export const Demo = () => {
+    return (
+        <div>
+            <Alert
+                title="Are you sure you want to delete your profile?"
+                description="If you delete your profile, all your data will be lost."
+                onSuccess={() => alert("Profile deleted")}
+                onCancel={() => alert("Profile not deleted")}
+            >
+                <button className="bg-white px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
+                    Delete profile
+                </button>
+            </Alert>
+        </div>
+    );
+};
+
+`;

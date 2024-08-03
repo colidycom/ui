@@ -35,3 +35,24 @@ export default {
     ],
     examples: null,
 };
+
+
+// @start-demo-string
+export const DemoString = `"use client";
+import { Badge } from "@/colidy-ui/Badge";
+import { Card } from "@/colidy-ui/Card";
+import { colors } from "@colidy/ui-utils";
+
+export const Demo = () => {
+    return (
+        <Card className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center gap-2 max-w-lg">
+            {colors.map((color) => (
+                <Badge key={color} color={color} href="#">
+                    {color}
+                </Badge>
+            ))}
+        </Card>
+    );
+};
+
+`;

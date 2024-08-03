@@ -138,3 +138,19 @@ export default {
         },
     ],
 };
+
+
+// @start-demo-string
+export const DemoString = `"use client";
+import { TextField } from "@/colidy-ui/TextField";
+import { Card } from "@/colidy-ui/Card";
+
+export const Demo = () => {
+    return (
+        <Card className="max-w-lg">
+            <TextField />
+        </Card>
+    );
+};
+
+`;
