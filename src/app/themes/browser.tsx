@@ -12,7 +12,7 @@ export default function Browser({ color, mode }: Props) {
         <>
             <section
                 className={cn(
-                    "bg-primary max-w-8xl mx-auto md:rounded border-t border-b md:border overflow-hidden colored-base",
+                    "bg-primary md:-translate-y-20 md:shadow-lg max-w-8xl mx-auto md:rounded border-t border-b md:border overflow-hidden colored-base",
                     {
                         dark: mode === "dark",
                         light: mode === "light",
