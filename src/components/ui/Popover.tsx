@@ -22,7 +22,7 @@ const PopoverContent = forwardRef<
     <PopoverPrimitives.Portal>
         <PopoverPrimitives.Content
             className={cn(
-                "!z-[51] w-full min-w-[220px] bg-input border rounded p-5 shadow-sm will-change-[opacity,transform] data-[state=open]:animate-dropdown-in data-[state=closed]:animate-dropdown-out",
+                "!z-[51] w-full min-w-[220px] bg-secondary border rounded p-5 !outline-none !ring-none shadow-sm will-change-[opacity,transform] data-[state=open]:animate-dropdown-in data-[state=closed]:animate-dropdown-out",
 
                 "data-[align=center]:data-[side=right]:origin-left",
                 "data-[align=start]:data-[side=right]:origin-top-left",

@@ -1,3 +1,4 @@
+import { cn } from "@colidy/ui-utils";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { forwardRef } from "react";
 
@@ -6,10 +7,10 @@ const Tabs = TabsPrimitive.Root;
 const TabList = forwardRef<
     HTMLDivElement,
     React.ComponentProps<typeof TabsPrimitive.List>
->((props, ref) => (
+>(({ className, ...props }, ref) => (
     <TabsPrimitive.List
         ref={ref}
-        className="border-b text-muted flex items-center mb-6"
+        className={cn("border-b text-muted flex items-center mb-6", className)}
         {...props}
     />
 ));

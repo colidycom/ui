@@ -44,6 +44,10 @@
 	scrollbar-color: hsl(var(--border)) hsl(var(--input));
 }
 
+.show-scrollbar {
+	scrollbar-width: thin !important;
+}
+
 body {
 	background: hsl(var(--primary)) !important;
 	color: hsl(var(--foreground));
@@ -51,18 +55,20 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-variant-ligatures: none;
-    -webkit-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
-    -moz-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
-    -ms-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
-    font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+	-webkit-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+	-moz-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+	-ms-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+	font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
 }
 
 .bg-grid-black {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(0 0 0 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(0 0 0 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")
 }
+
 .dark .bg-grid-black {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")
 }
+
 .bg-grid {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")
 }

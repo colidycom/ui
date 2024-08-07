@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "next-themes";
+import { Sidebar } from "@/components/Sidebar";
+import { Footer } from "@/components/Footer";
 
 const inter = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -25,6 +27,12 @@ export const metadata: Metadata = {
         "accessibility",
         "developer",
         "experience",
+        "tailwind",
+        "css",
+        "typescript",
+        "javascript",
+        "web",
+        "development",
     ],
     authors: [
         {
@@ -126,7 +134,9 @@ export default function RootLayout({
                 </noscript>
                 <ThemeProvider attribute="class" defaultTheme="system">
                     <Navbar />
+                    <Sidebar onMobile />
                     {children}
+                    <Footer />
                 </ThemeProvider>
             </body>
         </html>

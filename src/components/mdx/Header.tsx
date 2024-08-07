@@ -25,7 +25,7 @@ export const Header = ({
             </div>
             <Paragraph className="mt-2 sm:text-base">{description}</Paragraph>
             {buttons && (
-                <div className="flex mt-6 space-x-4">
+                <div className="flex flex-col sm:flex-row mt-6 gap-4">
                     {buttons.map((button, i) => (
                         <Link
                             key={i}

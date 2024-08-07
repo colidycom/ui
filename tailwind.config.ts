@@ -9,6 +9,18 @@ const config: Config = {
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: "2rem",
+            },
+            screens: {
+                sm: "90rem",
+                md: "90rem",
+                lg: "90rem",
+                xl: "90rem",
+            },
+        },
         extend: {
             maxWidth: {
                 "8xl": "90rem",

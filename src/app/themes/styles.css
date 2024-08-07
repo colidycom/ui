@@ -1,0 +1,33 @@
+.light {
+    --primary: var(--light-hue, 240) var(--light-saturation, 0) 99%;
+    --secondary: var(--light-hue, 240) var(--light-saturation, 0) 97%;
+    --tertiary: var(--light-hue, 240) var(--light-saturation, 0) 95%;
+    --accent: var(--light-hue, 240) var(--light-saturation, 0) 90%;
+
+    --input: var(--light-hue, 240) var(--light-saturation, 0) 98%;
+    --border: var(--light-hue, 240) var(--light-saturation, 0) 90%;
+
+    --foreground: 0 0% 0%;
+    --muted: 0 0% 40%;
+
+    --colored: 215 72% 57%;
+
+    --round: var(--border-radius, 0.625rem);
+}
+
+.dark.colored-base {
+    --primary: var(--hue, 240) var(--saturation, 10%) 3.92% !important;
+    --secondary: var(--hue, 240) var(--saturation, 5.88%) 10% !important;
+    --tertiary: var(--hue, 240) var(--saturation, 5.88%) 15% !important;
+    --accent: var(--hue, 240) var(--saturation, 3%) 20% !important;
+
+    --input: var(--hue, 240) var(--saturation, 4%) 15% !important;
+    --border: var(--hue, 240) var(--saturation, 3%) 20% !important;
+
+    --foreground: 0 0% 100% !important;
+    --muted: 0 0% 60% !important;
+
+    --colored: 215 72% 57% !important;
+
+    --round: var(--border-radius, 0.625rem) !important;
+}

@@ -46,7 +46,10 @@ const TableCell = forwardRef<
 >(({ className, ...props }, ref) => (
     <td
         ref={ref}
-        className={cn("py-4 border-b !border-border/50", className)}
+        className={cn(
+            "py-4 border-b !border-border/50 text-foreground",
+            className
+        )}
         {...props}
     />
 ));

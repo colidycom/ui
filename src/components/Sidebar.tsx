@@ -6,9 +6,11 @@ import { docsTree } from "@/utils/docs-utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { pages as _pages } from "@/utils/pages";
 
-export const Sidebar = () => {
+export const Sidebar = ({ onMobile }: { onMobile?: boolean }) => {
+    const [isMobile, setIsMobile] = useState(false);
     const isOpen = useSidebar((state) => state.open);
     const toggleSidebar = useSidebar((state) => state.toggleSidebar);
     const pathname = usePathname();
@@ -21,6 +23,20 @@ export const Sidebar = () => {
         }
     }, [isOpen]);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 1024);
+        };
+
+        handleResize();
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const pages = _pages(pathname);
+
     return (
         <>
             <AnimatePresence>
@@ -30,15 +46,17 @@ export const Sidebar = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed inset-0 z-50 bg-black/50 lg:hidden"
+                        className="fixed inset-0 z-[1000] bg-black/50 lg:hidden"
                     />
                 )}
             </AnimatePresence>
             <div
                 className={cn(
-                    "-translate-x-full bg-primary lg:bg-transparent transition-all lg:translate-x-0 top-0 fixed z-50 inset-0 lg:top-[64px] left-[max(0px,calc(50%-45rem))] right-auto w-full border-r lg:border-none max-w-[19rem] pb-10 overflow-y-auto",
+                    "-translate-x-full bg-primary lg:bg-transparent transition-all lg:translate-x-0 top-0 fixed z-[1001] inset-0 lg:top-[64px] left-[max(0px,calc(50%-45rem))] right-auto w-full border-r lg:border-none max-w-[19rem] pb-10 overflow-y-auto",
                     {
                         "translate-x-0": isOpen,
+                        "lg:hidden": !pathname.startsWith("/docs"),
+                        "block lg:hidden": onMobile,
                     }
                 )}
             >
@@ -84,6 +102,38 @@ export const Sidebar = () => {
                     className="lg:text-sm lg:leading-6 relative overflow-y-auto pl-8 pr-6"
                 >
                     <ul>
+                        {isMobile && (
+                            <li className="mt-6 lg:mt-8 lg:hidden">
+                                <ul className="space-y-1">
+                                    {pages.map((item) => (
+                                        <li
+                                            key={item.href}
+                                            className="relative group"
+                                        >
+                                            <Link
+                                                className={cn(
+                                                    "block px-2.5 py-1.5 -ml-2.5 transition-all rounded",
+                                                    {
+                                                        "bg-colored/5 text-colored font-semibold":
+                                                            item.isActive(),
+                                                        "hover:bg-zinc-500/10 text-muted hover:text-foreground":
+                                                            !item.isActive(),
+                                                    }
+                                                )}
+                                                href={item.href}
+                                            >
+                                                {item.title}
+                                                {item.label && (
+                                                    <span className="ml-1 text-xs bg-colored/10 text-colored px-1.5 py-1 rounded-sm">
+                                                        {item.label}
+                                                    </span>
+                                                )}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </li>
+                        )}
                         {docsTree.map((section) => (
                             <li className="mt-6 lg:mt-8" key={section.slug}>
                                 <h5 className="mb-3 font-semibold text-foreground">
@@ -99,7 +149,7 @@ export const Sidebar = () => {
                                                 className={cn(
                                                     "block px-2.5 py-1.5 -ml-2.5 transition-all rounded",
                                                     {
-                                                        "text-colored font-semibold":
+                                                        "bg-colored/5 text-colored font-semibold":
                                                             pathname ===
                                                             "/docs/" +
                                                                 section.slug +
@@ -119,16 +169,6 @@ export const Sidebar = () => {
                                             >
                                                 {item.title}
                                             </Link>
-                                            {pathname ===
-                                                "/docs/" +
-                                                    section.slug +
-                                                    "/" +
-                                                    item.slug && (
-                                                <motion.div
-                                                    className="bg-colored/10 absolute inset-y-0 -left-2.5 right-0 rounded"
-                                                    layoutId="sidebar-active"
-                                                />
-                                            )}
                                         </motion.li>
                                     ))}
                                 </ul>

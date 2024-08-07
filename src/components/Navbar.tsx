@@ -6,41 +6,23 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { cn } from "@colidy/ui-utils";
 import { useTheme } from "next-themes";
+import { pages as _pages } from "@/utils/pages";
 
 export default function Navbar() {
     const toggleSidebar = useSidebar((state) => state.toggleSidebar);
     const pathname = usePathname();
     const { theme, setTheme } = useTheme();
-
-    const pages = [
-        {
-            title: "Homepage",
-            isActive: () => pathname === "/",
-            href: "/",
-        },
-        {
-            title: "Documentation",
-            isActive: () => pathname.startsWith("/docs"),
-            href: "/docs",
-        },
-        {
-            title: "Templates",
-            href: "/templates",
-            isActive: () => pathname.startsWith("/templates"),
-            disabled: true,
-            label: "SOON",
-        },
-    ];
+    const pages = _pages(pathname);
 
     return (
         <div
-            className={cn("sticky top-0 z-50 w-full flex-none lg:z-50", {
+            className={cn("sticky top-0 z-[999] w-full flex-none lg:z-50", {
                 "backdrop-blur lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/70 supports-backdrop-blur:bg-white/70 dark:bg-transparent":
                     pathname !== "/",
             })}
         >
-            <div className="max-w-8xl mx-auto">
-                <div className="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
+            <div className="container">
+                <div className="py-4 border-b border-slate-900/10 lg:border-0 dark:border-slate-300/10">
                     <div className="relative flex items-center lg:justify-start justify-between gap-2">
                         <Link
                             className="mr-3 flex items-center gap-2 flex-none overflow-hidden"

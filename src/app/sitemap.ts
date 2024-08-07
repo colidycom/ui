@@ -12,6 +12,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 1,
             lastModified: new Date().toISOString(),
         },
+        {
+            url: new URL("/themes", baseUrl).toString(),
+            changeFrequency: "daily",
+            priority: 1,
+            lastModified: new Date().toISOString(),
+        },
     ].concat(
         flatDocs.map((doc) => ({
             url: new URL("/docs" + doc.url, baseUrl).toString(),

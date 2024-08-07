@@ -8,7 +8,7 @@ import { forwardRef } from "react";
 
 const classes = {
     content: [
-        "relative max-h-[85vh] sm:max-w-[512px] bg-secondary border rounded-lg flex flex-col",
+        "relative max-h-[85vh] sm:max-w-xl bg-secondary border rounded-lg flex flex-col",
         "data-[state=open]:animate-translateYIn data-[state=open]:sm:animate-scaleIn data-[state=closed]:animate-translateYOut data-[state=closed]:sm:animate-scaleOut",
     ].join(" "),
     overlay: [
@@ -34,11 +34,11 @@ const DialogClose = DialogPrimitive.Close;
 const DialogContent = forwardRef<
     HTMLDivElement,
     React.ComponentProps<typeof DialogPrimitive.Content>
->(({ children, ...props }, ref) => (
+>(({ children, className, ...props }, ref) => (
     <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className={classes.overlay}>
             <DialogPrimitive.Content
-                className={classes.content}
+                className={cn(classes.content, className)}
                 ref={ref}
                 {...props}
             >
