@@ -192,7 +192,7 @@ export default function Header({
                             Themes
                         </span>
                     </h1>
-                    <p className="mt-4 text-muted">
+                    <p className="mt-4 text-muted text-center">
                         Explore different themes and color schemes.
                     </p>
                     <div className="flex mt-4 items-center gap-4">
