@@ -14,7 +14,7 @@ const nextConfig = {
   },
   webpack: (config) => {
     config.module.noParse = (content) => {
-      return content.includes(path.resolve(__dirname, 'cli'));
+      return content.includes(path.resolve(process.cwd(), 'cli'));
     };
 
     return config;
