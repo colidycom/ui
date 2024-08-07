@@ -1,0 +1,27 @@
+{
+    "name": "@colidy/ui",
+    "version": "1.3.0",
+    "description": "ColidyUI CLI",
+    "main": "index.js",
+    "bin": {
+        "colidyui": "./index.js"
+    },
+    "publish": {
+        "access": "public"
+    },
+    "keywords": [
+        "ui",
+        "react",
+        "nextjs",
+        "colidy"
+    ],
+    "author": "Colidy",
+    "license": "MIT",
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "commander": "^12.1.0",
+        "glob": "^11.0.0",
+        "inquirer": "^10.1.6",
+        "octokit": "^3.2.1"
+    }
+}
