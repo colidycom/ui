@@ -202,7 +202,10 @@ export default function BrowserDemo() {
 
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
                         {browsers.map((browser, i) => (
-                            <div className="bg-tertiary rounded-sm p-3 flex flex-col justify-between items-between w-full">
+                            <div
+                                className="bg-tertiary rounded-sm p-3 flex flex-col justify-between items-between w-full"
+                                key={i}
+                            >
                                 <img
                                     src={browser.icon}
                                     className="w-6 h-6 mb-4"
@@ -276,7 +279,10 @@ export default function BrowserDemo() {
 
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
                         {sales.map((sale, i) => (
-                            <div className="bg-tertiary rounded-sm p-3 flex flex-col justify-between items-between w-full">
+                            <div
+                                className="bg-tertiary rounded-sm p-3 flex flex-col justify-between items-between w-full"
+                                key={i}
+                            >
                                 <img src={sale.icon} className="w-6 h-6 mb-4" />
                                 <div>
                                     <Paragraph>{sale.name}</Paragraph>
