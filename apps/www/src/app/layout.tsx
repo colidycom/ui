@@ -137,10 +137,15 @@ export default function RootLayout({
 						></iframe>
 					</noscript>
 					<NProgress />
-					<Navbar />
-					<Sidebar onMobile />
-					{children}
-					<Footer />
+					<main
+						className="bg-primary border border-transparent data-[aria-hidden=true]:border-border transition-colors duration-200 ease-in-out"
+						vaul-drawer-wrapper=""
+					>
+						<Navbar />
+						<Sidebar onMobile />
+						{children}
+						<Footer />
+					</main>
 				</ThemeProvider>
 			</body>
 		</html>
