@@ -24,7 +24,7 @@ export const Demo = () => {
 		<div>
 			<Dialog>
 				<DialogTrigger>
-					<button className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-12 h-12 !outline-none text-primary backdrop-blur">
+					<button className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-auto h-12 !outline-none text-primary backdrop-blur">
 						Edit profile
 					</button>
 				</DialogTrigger>
