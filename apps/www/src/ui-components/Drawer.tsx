@@ -249,8 +249,8 @@ const DrawerHeader = forwardRef(
 		const { isMobile } = useDrawer();
 
 		return (
-			<div className="border-b p-6 font-medium flex justify-center lg:justify-between items-center text-base text-center lg:text-left">
-				<span className={className}>{children}</span>
+			<div className="border-b p-6 font-medium flex justify-between items-center text-base text-center lg:text-left">
+				<div className={cn('space-y-2', className)}>{children}</div>
 				{(!isMobile || showClose) && (
 					<DrawerClose>
 						<Button iconOnly variant="ghost">
