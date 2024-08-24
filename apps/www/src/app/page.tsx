@@ -14,7 +14,7 @@ export default function Home() {
 					<div className="fixed bg-grid opacity-20 inset-0 z-[-2] pointer-events-none" />
 					<div className="max-w-screen-md flex flex-col items-center mx-auto text-center justify-center">
 						<Link
-							href="/docs/hooks/use-toogle"
+							href="/docs/hooks/use-toggle"
 							className="mb-6 flex items-center gap-2 rounded-full bg-muted/10 px-3 py-2 text-xs text-muted hover:bg-muted/20 transition-colors backdrop-blur-sm"
 						>
 							<span className="flex items-center gap-1">
