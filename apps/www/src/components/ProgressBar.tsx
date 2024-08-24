@@ -21,7 +21,7 @@ export default function NProgress({ children }: { children: React.ReactNode }) {
 			className="relative z-[1] bg-primary border border-transparent data-[aria-hidden=true]:border-border transition-colors duration-200 ease-in-out"
 			vaul-drawer-wrapper=""
 		>
-			<div className="max-w-screen overflow-hidden absolute inset-x-0 max-h-screen lg:-top-20 pointer-events-none">
+			<div className="max-w-screen overflow-hidden absolute inset-x-0 max-h-screen lg:-top-20 pointer-events-none -z-50">
 				<svg
 					className={cn(
 						'w-full lg:min-w-[80rem] mx-auto -scale-y-100 contrast-150',
