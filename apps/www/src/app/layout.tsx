@@ -136,16 +136,12 @@ export default function RootLayout({
 							style={{ display: 'none', visibility: 'hidden' }}
 						></iframe>
 					</noscript>
-					<NProgress />
-					<main
-						className="bg-primary border border-transparent data-[aria-hidden=true]:border-border transition-colors duration-200 ease-in-out"
-						vaul-drawer-wrapper=""
-					>
+					<NProgress>
 						<Navbar />
 						<Sidebar onMobile />
 						{children}
 						<Footer />
-					</main>
+				</NProgress>
 				</ThemeProvider>
 			</body>
 		</html>
