@@ -1,0 +1,25 @@
+{
+	"name": "@colidy/ui-utils",
+	"version": "1.0.1",
+	"description": "A utility package for merging Tailwind CSS classes and color names.",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsc",
+		"prepublishOnly": "npm run build"
+	},
+	"author": "Colidy",
+	"license": "MIT",
+	"dependencies": {
+		"clsx": "^2.1.1",
+		"lodash.merge": "^4.6.2",
+		"tailwind-merge": "^2.4.0"
+	},
+	"devDependencies": {
+		"@types/lodash.merge": "^4.6.9",
+		"typescript": "^5.5.4"
+	}
+}

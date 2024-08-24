@@ -1,0 +1,116 @@
+---
+title: Dark Mode Configuration in Next.js (App Router)
+description: In this example, the dark mode support is implemented using the `next-themes` library. The `ThemeProvider` component is used to define the default theme and allow users to toggle between themes based on their preference.
+---
+
+## 1. Install `next-themes`
+
+First, install the `next-themes` library to manage dark mode:
+
+```bash
+npm install next-themes
+```
+
+## 2. Basic Configuration
+
+The following example shows how to integrate dark mode in a Next.js App Router project. The `ThemeProvider` component is wrapped around the app’s layout, and themes are managed via the `class` attribute.
+
+```tsx filename=app/layout.tsx
+import { ThemeProvider } from 'next-themes';
+import { Plus_Jakarta_Sans } from 'next/font/google';
+import './globals.css';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+
+const inter = Plus_Jakarta_Sans({ subsets: ['latin'] });
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <html lang="en">
+            <body className={inter.className}>
+                <ThemeProvider attribute="class" defaultTheme="light" storageKey="theme">
+                    <Navbar />
+                    <main>{children}</main>
+                    <Footer />
+                </ThemeProvider>
+            </body>
+        </html>
+    );
+}
+```
+
+## 3. Tailwind CSS Configuration for Dark Mode
+
+To ensure that dark mode works smoothly with Tailwind CSS, set the `darkMode` option to `class` in your `tailwind.config.js`:
+
+```js filename=tailwind.config.js
+import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
+import { withColidyUI } from "@colidy/ui-utils";
+
+export default withColidyUI({
+    darkMode: "class",
+    content: [
+        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    ],
+    theme: {},
+    plugins: [],
+} as Config);
+```
+
+## 4. Toggle Between Light and Dark Mode
+
+You can add a button in your app to switch themes using the `next-themes` hook:
+
+```tsx filename=components/ThemeToggle.tsx
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+
+export default function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Prevents hydration mismatch
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  return (
+    <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+      {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+    </button>
+  );
+}
+```
+
+## 5. Usage
+
+You can add the theme toggle button to your `Navbar` component:
+
+```tsx
+import ThemeToggle from './ThemeToggle';
+
+function Navbar() {
+  return (
+    <nav>
+      <h1>My Website</h1>
+      <ThemeToggle />
+    </nav>
+  );
+}
+
+export default Navbar;
+```
+
+## 6. Final Result
+
+With this setup, your application now fully supports dark mode. Users can toggle between themes, and their preferences will be saved in their browser.
+
+This guide is tailored for the App Router in Next.js. For other frameworks or the Pages Router, you can adapt similar steps.
+
+<br />
+<br />
+
+[![Try with Replit Badge](https://replit.com/badge?caption=Try%20with%20Replit)](https://replit.com/@iclaudette/colidyui-nextjs-dark-mode)

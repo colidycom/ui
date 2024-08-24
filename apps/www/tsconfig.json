@@ -1,0 +1,38 @@
+{
+	"compilerOptions": {
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"baseUrl": ".",
+		"plugins": [
+			{
+				"name": "next"
+			},
+			{ "transform": "ts-transformer-keys/transformer" }
+		],
+		"paths": {
+			"@/*": ["./src/*"],
+			"@/colidy-ui/*": ["./src/ui-components/*"],
+			"@/components/ui/*": ["./src/ui-components/*"],
+			"@/demos": ["./src/components/demos"],
+			"contentlayer/generated": ["./.contentlayer/generated"]
+		}
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		".contentlayer/generated"
+	],
+	"exclude": ["node_modules"]
+}

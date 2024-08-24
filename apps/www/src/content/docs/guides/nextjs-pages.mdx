@@ -1,0 +1,131 @@
+---
+title: Next.js (Pages Router)
+description: Learn how to use the components with Next.js Pages Router.
+---
+
+## Font Family and Typography
+
+The components use the [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) font family, which is imported from Google Fonts. This font family is used throughout the components to ensure a consistent and visually appealing typographic style.
+
+```tsx filename=layout.tsx
+import { Plus_Jakarta_Sans } from "next/font/google";
+// ...
+
+const font = Plus_Jakarta_Sans({ subsets: ["latin"] });
+
+export default function MyApp({ Component, pageProps }) {
+    return (
+        <main className={font.className}>
+            <Component {...pageProps} />
+        </main>
+    );
+}
+```
+
+<Tabs defaultValue="cli">
+    <TabList>
+        <Tab value="cli">CLI</Tab>
+        <Tab value="manual">Manual</Tab>
+    </TabList>
+        <TabPanel value="cli">
+            ```bash
+            npx @colidy/ui init
+            ```
+        </TabPanel>
+        <TabPanel value="manual">
+                ## Tailwind CSS Configuration
+
+                The components are styled using Tailwind CSS, with a configuration tailored to support a variety of design needs, including dark mode, custom animations, and extended color palettes.
+
+                ```js filename=tailwind.config.js
+                import defaultTheme from "tailwindcss/defaultTheme";
+
+                import { withColidyUI } from "@colidy/ui-utils";
+
+                export default withColidyUI({
+                    darkMode: "class",
+                    content: [
+                        "./pages/**/*.{js,ts,jsx,tsx}",
+                        "./colidy-ui/**/*.{js,ts,jsx,tsx}",
+                    ],
+                    theme: {},
+                    plugins: [],
+                });
+                ```
+
+                ## Global CSS Settings
+
+                The global styles provide the foundational styling for the components, including color schemes and font settings.
+
+                ```css filename=globals.css
+                @tailwind base;
+                @tailwind components;
+                @tailwind utilities;
+
+                @layer base {
+                    [color-scheme="light"] {
+                        --primary: 255 0% 99%;
+                        --secondary: 255 0% 97%;
+                        --tertiary: 255 0% 95%;
+                        --accent: 255 0% 90%;
+                        --popover: 255 0% 99%;
+                        --input: 255 0% 98%;
+                        --border: 255 0% 90%;
+                        --foreground: 0 0% 0%;
+                        --muted: 0 0% 40%;
+                        --colored: 215 72% 57%;
+                        --round: .625rem;
+                    }
+
+                    [color-scheme="dark"] {
+                        --primary: 240 10% 3.92%;
+                        --secondary: 240 5.88% 10%;
+                        --tertiary: 240 5.88% 15%;
+                        --accent: 240 3% 20%;
+                        --popover: 240 4% 17%;
+                        --input: 240 4% 15%;
+                        --border: 240 3% 20%;
+                        --foreground: 0 0% 100%;
+                        --muted: 0 0% 60%;
+                        --colored: 215 72% 57%;
+                    }
+                }
+
+                * {
+                    scrollbar-width: thin;
+                    scrollbar-color: hsl(var(--border)) hsl(var(--input));
+                }
+
+                body {
+                    background: hsl(var(--primary)) !important;
+                    color: hsl(var(--foreground));
+                    overflow-x: hidden;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    font-variant-ligatures: none;
+                    -webkit-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+                    -moz-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+                    -ms-font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+                    font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+                }
+                ```
+
+                ## Typescript Configuration
+
+                The components are written in TypeScript, which provides type safety and improved code quality. The TypeScript configuration is set up to support the components and ensure that the codebase is consistent and maintainable.
+
+                ```json filename=tsconfig.json
+                {
+                    "compilerOptions": {
+                        // ...
+                        "paths": {
+                            // ...
+                            "@/colidy-ui/*": ["./src/components/colidy-ui/*"]
+                        }
+                    }
+                    // ...
+                }
+                ```
+                </TabPanel>
+
+</Tabs>
