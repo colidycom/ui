@@ -10,7 +10,7 @@ Explore the full documentation at [ui.colidy.com/docs](https://ui.colidy.com/doc
 
 ## Releases
 
-Stay updated with the latest changes by visiting our [changelog](https://ui.colidy.com/docs/overview/releases).
+Stay updated with the latest changes by visiting our [changelog](https://ui.colidy.com/docs/getting-started/changelog).
 
 ## Authors
 
