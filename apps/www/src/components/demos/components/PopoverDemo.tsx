@@ -22,7 +22,7 @@ export const Demo = () => {
 		<main className="max-w-lg">
 			<Popover>
 				<PopoverTrigger>
-					<button className="bg-foreground px-4 py-2 rounded flex justify-center items-center gap-6 w-auto h-12 !outline-none text-primary backdrop-blur">
+					<button className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-12 h-12 !outline-none text-primary backdrop-blur">
 						Edit dimensions
 					</button>
 				</PopoverTrigger>
