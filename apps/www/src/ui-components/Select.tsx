@@ -251,7 +251,7 @@ const SelectContent = forwardRef<
 	const { isMobile } = useSelect();
 
 	return isMobile ? (
-		<DrawerBody>{children}</DrawerBody>
+		<DrawerBody className="space-y-2">{children}</DrawerBody>
 	) : (
 		<SelectPrimitive.Portal>
 			<SelectPrimitive.Content

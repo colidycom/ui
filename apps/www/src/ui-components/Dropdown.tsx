@@ -88,7 +88,9 @@ const DropdownItems = forwardRef<
 
 	return isMobile ? (
 		<DrawerContent>
-			<DrawerBody>{children}</DrawerBody>
+			<DrawerBody className={cn('space-y-2', className)}>
+				{children}
+			</DrawerBody>
 		</DrawerContent>
 	) : (
 		<DropdownPrimitive.Portal>
@@ -254,7 +256,9 @@ const DropdownSubItems = forwardRef<
 
 	return isMobile ? (
 		<DrawerContent>
-			<DrawerBody>{children}</DrawerBody>
+			<DrawerBody className={cn('space-y-2', className)}>
+				{children}
+			</DrawerBody>
 		</DrawerContent>
 	) : (
 		<DropdownPrimitive.Portal>
@@ -368,7 +372,7 @@ const DropdownSeperator = forwardRef<HTMLHRElement>((props, ref) => {
 	const { isMobile } = useDropdown();
 
 	return isMobile ? (
-		<div className="h-px bg-border my-2.5 -mx-6" ref={ref} {...props} />
+		<hr className="bg-border !my-6 -mx-6" ref={ref} {...props} />
 	) : (
 		<DropdownPrimitive.Separator
 			className="h-px bg-muted/10 my-1.5 -mx-2"
@@ -410,12 +414,12 @@ DropdownLabel.displayName = 'ColidyDropdownLabel';
 const DropdownRadioGroup = forwardRef<
 	HTMLDivElement,
 	React.ComponentProps<typeof DropdownPrimitive.RadioGroup>
->(({ children, value, onValueChange, ...props }, ref) => {
+>(({ className, children, value, onValueChange, ...props }, ref) => {
 	const { isMobile } = useDropdown();
 
 	return isMobile ? (
 		<RadioGroupContext.Provider value={{ value, onValueChange }}>
-			<div>{children}</div>
+			<div className={cn('space-y-2', className)}>{children}</div>
 		</RadioGroupContext.Provider>
 	) : (
 		<DropdownPrimitive.RadioGroup

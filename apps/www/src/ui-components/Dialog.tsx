@@ -213,7 +213,13 @@ const DialogBody = forwardRef<
 >(({ className, ...props }, ref) => {
 	const { isMobile } = useDialog();
 	return isMobile ? (
-		<DrawerBody {...props} />
+		<DrawerBody
+			className={cn(
+				'flex-grow overflow-y-auto flex-1 px-8 py-2',
+				className
+			)}
+			{...props}
+		/>
 	) : (
 		<div
 			className={cn(

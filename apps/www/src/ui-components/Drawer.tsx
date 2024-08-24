@@ -270,7 +270,14 @@ const DrawerBody = forwardRef(
 		{ className, children, ...props }: React.HTMLProps<HTMLDivElement>,
 		ref
 	) => {
-		return <div className="flex-1 p-6 space-y-6 w-full">{children}</div>;
+		return (
+			<div
+				className={cn('flex-1 p-6 space-y-6 w-full', className)}
+				{...props}
+			>
+				{children}
+			</div>
+		);
 	}
 );
 
