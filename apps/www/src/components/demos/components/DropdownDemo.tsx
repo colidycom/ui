@@ -24,7 +24,7 @@ export const Demo = () => {
 			<Dropdown>
 				<DropdownTrigger>
 					<button
-						className="bg-white px-4 py-2 rounded flex justify-between items-center gap-6 w-12 h-12 !outline-none text-colored backdrop-blur"
+						className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-12 h-12 !outline-none text-colored backdrop-blur"
 						style={{ maxWidth: '200px' }}
 					>
 						<svg
@@ -164,7 +164,7 @@ export const Demo = () => {
 			<Dropdown>
 				<DropdownTrigger>
 					<button
-						className="bg-white px-4 py-2 rounded flex justify-between items-center gap-6 w-12 h-12 !outline-none text-colored backdrop-blur"
+						className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-12 h-12 !outline-none text-colored backdrop-blur"
 						style={{ maxWidth: '200px' }}
 					>
 						<svg

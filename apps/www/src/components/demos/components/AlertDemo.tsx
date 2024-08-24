@@ -10,7 +10,7 @@ export const Demo = () => {
 				onSuccess={() => alert('Profile deleted')}
 				onCancel={() => alert('Profile not deleted')}
 			>
-				<button className="bg-white px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
+				<button className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
 					Delete profile
 				</button>
 			</Alert>
@@ -83,7 +83,7 @@ export default {
             title="Are you sure you want to delete your profile?"
             description="If you delete your profile, all your data will be lost. And you won't be able to recover it."
         >
-            <button className="bg-white px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
+            <button className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
                 <span>Delete profile</span>
             </button>
         </Alert>`,
@@ -93,7 +93,7 @@ export default {
 						title="Are you sure you want to delete your profile?"
 						description="If you delete your profile, all your data will be lost. And you won't be able to recover it."
 					>
-						<button className="bg-white px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
+						<button className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
 							<span>Delete profile</span>
 						</button>
 					</Alert>
@@ -110,7 +110,7 @@ export default {
             confirmText="Yes, delete"
             cancelText="No, cancel"
         >
-            <button className="bg-white px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
+            <button className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
                 <span>Delete profile</span>
             </button>
         </Alert>`,
@@ -122,7 +122,7 @@ export default {
 						confirmText="Yes, delete"
 						cancelText="No, cancel"
 					>
-						<button className="bg-white px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
+						<button className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
 							<span>Delete profile</span>
 						</button>
 					</Alert>
@@ -137,7 +137,7 @@ export default {
             title="Are you sure you want to delete your profile?"
             description="If you delete your profile, enter your password to confirm."
         >
-            <button className="bg-white px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
+            <button className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
                 <span>Delete profile</span>
             </button>
 
@@ -153,7 +153,7 @@ export default {
 						title="Are you sure you want to delete your profile?"
 						description="If you delete your profile, enter your password to confirm."
 					>
-						<button className="bg-white px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
+						<button className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
 							<span>Delete profile</span>
 						</button>
 
@@ -182,7 +182,7 @@ export const Demo = () => {
 				onSuccess={() => alert('Profile deleted')}
 				onCancel={() => alert('Profile not deleted')}
 			>
-				<button className="bg-white px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
+				<button className="bg-foreground px-4 py-2 rounded flex justify-between items-center gap-6 w-auto !outline-none text-colored backdrop-blur text-sm shadow-sm">
 					Delete profile
 				</button>
 			</Alert>
