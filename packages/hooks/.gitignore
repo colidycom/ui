@@ -40,3 +40,6 @@ next-env.d.ts
 
 # Thumb Page
 src/app/thumb
+
+# dist
+dist

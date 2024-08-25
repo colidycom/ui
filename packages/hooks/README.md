@@ -16,12 +16,12 @@ This library provides a collection of custom React hooks to simplify various tas
     - [useOnClickOutside](#useonclickoutside)
     - [useHover](#usehover)
     - [useOnlineStatus](#useonlinestatus)
-    - [useDocumentTitle](#usedocumenttitle)
     - [useScrollPosition](#usescrollposition)
     - [useTimeout](#usetimeout)
     - [useDarkMode](#usedarkmode)
     - [useKeyPress](#usekeypress)
     - [useFocus](#usefocus)
+    - [useMediaQuery](#useMediaQuery)
     - [useTableOfContents](#useTableOfContents)
 3. [Contributing](#contributing)
 4. [License](#license)
@@ -32,7 +32,7 @@ This library contains a set of custom React hooks that are useful for various as
 
 ## Hooks
 
-### 1. `useForm`
+### `useForm`
 
 A custom hook for managing form state, validation, and submission. Allows you to handle form values, errors, and submission with ease.
 
@@ -82,7 +82,7 @@ const MyForm: React.FC = () => {
 };
 ```
 
-### 2. `usePrevious`
+### `usePrevious`
 
 A hook to store the previous value of a state or prop.
 
@@ -105,7 +105,7 @@ const MyComponent: React.FC = () => {
 };
 ```
 
-### 3. `useToggle`
+### `useToggle`
 
 A hook to toggle between `true` and `false`.
 
@@ -126,7 +126,7 @@ const ToggleComponent: React.FC = () => {
 };
 ```
 
-### 4. `useInterval`
+### `useInterval`
 
 A hook to manage intervals.
 
@@ -144,7 +144,7 @@ const IntervalComponent: React.FC = () => {
 };
 ```
 
-### 5. `useLocalStorage`
+### `useLocalStorage`
 
 A hook to manage state synced with `localStorage`.
 
@@ -165,7 +165,7 @@ const LocalStorageComponent: React.FC = () => {
 };
 ```
 
-### 6. `useFetch`
+### `useFetch`
 
 A hook to fetch data with loading and error states.
 
@@ -184,7 +184,7 @@ const FetchComponent: React.FC = () => {
 };
 ```
 
-### 7. `useDebounce`
+### `useDebounce`
 
 A hook to debounce a value over a specified delay.
 
@@ -206,7 +206,7 @@ const DebounceComponent: React.FC = () => {
 };
 ```
 
-### 8. `useOnClickOutside`
+### `useOnClickOutside`
 
 A hook to handle clicks outside of a specified element.
 
@@ -226,7 +226,7 @@ const ClickOutsideComponent: React.FC = () => {
 };
 ```
 
-### 9. `useHover`
+### `useHover`
 
 A hook to detect hover state.
 
@@ -246,7 +246,7 @@ const HoverComponent: React.FC = () => {
 };
 ```
 
-### 10. `useOnlineStatus`
+### `useOnlineStatus`
 
 A hook to track online/offline status.
 
@@ -262,28 +262,7 @@ const OnlineStatusComponent: React.FC = () => {
 };
 ```
 
-### 11. `useDocumentTitle`
-
-A hook to manage the document title with an update function.
-
-#### Usage:
-
-```typescript
-import { useDocumentTitle } from '@colidy/hooks/useDocumentTitle';
-
-const DocumentTitleComponent: React.FC = () => {
-  const { title, updateTitle } = useDocumentTitle('Initial Title');
-
-  return (
-    <div>
-      <p>Current Title: {title}</p>
-      <button onClick={() => updateTitle('New Title')}>Update Title</button>
-    </div>
-  );
-};
-```
-
-### 12. `useScrollPosition`
+### `useScrollPosition`
 
 A hook to track the scroll position of the window.
 
@@ -299,7 +278,7 @@ const ScrollPositionComponent: React.FC = () => {
 };
 ```
 
-### 13. `useTimeout`
+### `useTimeout`
 
 A hook to handle timeouts.
 
@@ -317,7 +296,7 @@ const TimeoutComponent: React.FC = () => {
 };
 ```
 
-### 14. `useDarkMode`
+### `useDarkMode`
 
 A hook to detect dark mode preference.
 
@@ -333,7 +312,7 @@ const DarkModeComponent: React.FC = () => {
 };
 ```
 
-### 15. `useKeyPress`
+### `useKeyPress`
 
 A
 
@@ -351,28 +330,62 @@ const KeyPressComponent: React.FC = () => {
 };
 ```
 
-### 16. `useFocus`
+### `useFocus`
 
-A hook to programmatically set focus on an element.
+A hook to manage focus state and programmatically set focus on an element.
 
 #### Usage:
 
 ```typescript
+import React from 'react';
 import { useFocus } from '@colidy/hooks/useFocus';
 
 const FocusComponent: React.FC = () => {
-  const [inputRef, setFocus] = useFocus<HTMLInputElement>();
+  const { isFocused, setFocus, elementRef } = useFocus();
 
   return (
     <div>
-      <input ref={inputRef} />
-      <button onClick={setFocus}>Focus the input</button>
+      <input
+        ref={elementRef as React.RefObject<HTMLInputElement>}
+        type="text"
+        placeholder="Click to focus"
+      />
+      <p>The input is {isFocused ? 'focused' : 'not focused'}</p>
+      <button onClick={setFocus}>Focus Input</button>
     </div>
   );
 };
+
+export default FocusComponent;
 ```
 
-### 17. `useTableOfContents`
+### `useMediaQuery`
+
+A hook to track and respond to changes in media queries.
+
+#### Usage:
+
+```typescript
+import React from 'react';
+import { useMediaQuery } from '@colidy/hooks/useMediaQuery';
+
+const MediaQueryComponent: React.FC = () => {
+  const { matches, updateQuery } = useMediaQuery('(min-width: 768px)');
+
+  return (
+    <div>
+      <p>Is screen wider than 768px? {matches ? 'Yes' : 'No'}</p>
+      <button onClick={() => updateQuery('(min-width: 1024px)')}>
+        Update to 1024px
+      </button>
+    </div>
+  );
+};
+
+export default MediaQueryComponent;
+```
+
+### `useTableOfContents`
 
 A hook to programmatically set focus on an element.
 

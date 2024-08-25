@@ -90,10 +90,22 @@ export {
 } from './hooks/useFetchDemo';
 
 export {
-	default as UseDocumentTitleDemoConfig,
-	Demo as UseDocumentTitleDemo,
-	DemoString as UseDocumentTitleDemoString,
-} from './hooks/useDocumentTitleDemo';
+	default as UseFocusDemoConfig,
+	Demo as UseFocusDemo,
+	DemoString as UseFocusDemoString,
+} from './hooks/useFocusDemo';
+
+export {
+	default as UseMediaQueryDemoConfig,
+	Demo as UseMediaQueryDemo,
+	DemoString as UseMediaQueryDemoString,
+} from './hooks/useMediaQueryDemo';
+
+export {
+	default as UseTableOfContentsDemoConfig,
+	Demo as UseTableOfContentsDemo,
+	DemoString as UseTableOfContentsDemoString,
+} from './hooks/useTableOfContentsDemo';
 
 // ============== COMPONENTS
 

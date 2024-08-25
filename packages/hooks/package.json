@@ -1,6 +1,6 @@
 {
 	"name": "@colidy/hooks",
-	"version": "0.0.6",
+	"version": "0.0.15",
 	"description": "This library provides a collection of custom React hooks to simplify various tasks, including form management, state management, and other utilities. Each hook is designed to be reusable and easy to integrate into your React projects.",
 	"main": "dist/index.js",
 	"scripts": {

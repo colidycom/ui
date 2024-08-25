@@ -29,6 +29,7 @@ export const getDoc = (category: string, slug: string) => {
 	const obj: any = allContents.find(
 		d => d.url === `docs/${category}/${slug}`
 	);
+	if (!obj) return null;
 	obj.item = ct;
 	return obj;
 };

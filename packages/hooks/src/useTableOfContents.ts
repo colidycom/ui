@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react';
 
 interface TOCItem {
 	id: string;
-	text: string;
-	level: number;
+	title: string;
+	depth: number;
+	anchor: string;
 }
 
 export const useTableOfContents = (
 	headings: string[] = ['h2', 'h3', 'h4', 'h5', 'h6'],
 	container: string = '[data-toc]'
 ) => {
+	throw new Error('This hook is not implemented yet');
 	const [contents, setContents] = useState<TOCItem[]>([]);
 	const [active, setActive] = useState<string>('');
 	const [isScrolling, setIsScrolling] = useState<boolean>(false);
@@ -84,13 +86,27 @@ export const useTableOfContents = (
 			)
 		);
 
-		const toc = elements.map(element => ({
-			id: element.id,
-			text: element.textContent || '',
-			level: parseInt(element.tagName.replace('H', '')),
-		}));
+		const newContents: TOCItem[] = [];
 
-		setContents(toc);
+		elements.forEach(element => {
+			if (!element.id) return;
+
+			const depth = parseInt(element.tagName.replace('H', ''));
+			const title = element.textContent || '';
+
+			const anchorElement = element.closest('a');
+
+			if (anchorElement) {
+				newContents.push({
+					id: element.id,
+					title,
+					depth,
+					anchor: anchorElement.outerHTML,
+				});
+			}
+		});
+
+		setContents(newContents);
 	}, [headings, container]);
 
 	return { contents, active };

@@ -9,7 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@colidy/hooks": "^0.0.6",
+		"@colidy/hooks": "^0.0.9",
 		"@colidy/icons": "^0.0.6-dev",
 		"@colidy/ui": "^2.0.1",
 		"@colidy/ui-utils": "^1.0.0",

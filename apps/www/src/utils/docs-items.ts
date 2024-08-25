@@ -237,7 +237,6 @@ export default [
 					{
 						title: 'useDarkMode',
 						url: '/hooks/use-dark-mode',
-						experimental: true,
 					},
 					{
 						title: 'useHover',
@@ -275,11 +274,6 @@ export default [
 				title: 'Document/Browser',
 				items: [
 					{
-						title: 'useDocumentTitle',
-						url: '/hooks/use-document-title',
-						experimental: true,
-					},
-					{
 						title: 'useScrollPosition',
 						url: '/hooks/use-scroll-position',
 					},
@@ -288,9 +282,17 @@ export default [
 						url: '/hooks/use-viewport',
 					},
 					{
+						title: 'useMediaQuery',
+						url: '/hooks/use-media-query',
+					},
+					{
 						title: 'useKeyPress',
 						url: '/hooks/use-key-press',
 					},
+					// {
+					// 	title: 'useTableOfContents',
+					// 	url: '/hooks/use-table-of-contents',
+					// },
 				],
 			},
 			{
@@ -299,7 +301,6 @@ export default [
 					{
 						title: 'useOnlineStatus',
 						url: '/hooks/use-online-status',
-						experimental: true,
 					},
 				],
 			},

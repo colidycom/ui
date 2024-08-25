@@ -1,14 +1,32 @@
-import { useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
-export const useFocus = <T extends HTMLElement>(): [
-	React.RefObject<T>,
-	() => void
-] => {
-	const ref = useRef<T>(null);
+export const useFocus = () => {
+	const [isFocused, setIsFocused] = useState<boolean>(false);
+	const elementRef = useRef<HTMLElement | null>(null);
 
-	const setFocus = () => {
-		ref.current?.focus();
-	};
+	const setFocus = useCallback(() => {
+		if (elementRef.current) {
+			elementRef.current.focus();
+		}
+	}, []);
 
-	return [ref, setFocus];
+	useEffect(() => {
+		const handleFocus = () => setIsFocused(true);
+		const handleBlur = () => setIsFocused(false);
+
+		const element = elementRef.current;
+		if (element) {
+			element.addEventListener('focus', handleFocus);
+			element.addEventListener('blur', handleBlur);
+		}
+
+		return () => {
+			if (element) {
+				element.removeEventListener('focus', handleFocus);
+				element.removeEventListener('blur', handleBlur);
+			}
+		};
+	}, []);
+
+	return { isFocused, setFocus, elementRef };
 };
