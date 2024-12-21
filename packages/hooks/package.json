@@ -1,15 +1,13 @@
 {
 	"name": "@colidy/hooks",
-	"version": "0.0.15",
+	"version": "0.0.17",
 	"description": "This library provides a collection of custom React hooks to simplify various tasks, including form management, state management, and other utilities. Each hook is designed to be reusable and easy to integrate into your React projects.",
 	"main": "dist/index.js",
 	"scripts": {
-		"build": "tsc && npm version patch && npm run copy:readme && npm run copy:pckg && npm run copy:license",
-		"copy:readme": "@powershell copy './README.md' './dist'",
-		"copy:pckg": "@powershell copy './package.json' './dist'",
-		"copy:license": "@powershell copy './LICENSE' './dist'"
+		"build": "tsc && npm run copy:files",
+		"copy:files": "copyfiles -u 1 README.md LICENSE package.json dist"
 	},
-	"dependencies": {
+	"peerDependencies": {
 		"react": "^18.0.0"
 	},
 	"publishConfig": {
@@ -18,6 +16,7 @@
 	"devDependencies": {
 		"@types/node": "^18.0.0",
 		"@types/react": "^18.0.0",
+		"copyfiles": "^2.4.1",
 		"typescript": "^4.9.5"
 	}
 }
